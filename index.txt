@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Actividad - Modelos de evaluación y RED" />
+  <title>Actividad | Portafolio</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f1b33;
+      --text:#e8eefc;
+      --muted:#a9b6d6;
+      --brand:#7c5cff;
+      --brand2:#2de2e6;
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 16px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1100px;
+    }
+    [data-theme="light"]{
+      --bg:#f6f7fb;
+      --panel:#ffffff;
+      --text:#0b1220;
+      --muted:#4a587a;
+      --border: rgba(0,0,0,.10);
+      --shadow: 0 14px 30px rgba(12,19,35,.10);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background: radial-gradient(1000px 600px at 20% 0%, rgba(124,92,255,.18), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(45,226,230,.12), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      backdrop-filter: blur(8px);
+    }
+    [data-theme="light"] .chip{background: rgba(0,0,0,.03)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      text-decoration:none;
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    [data-theme="light"] .btn{background: rgba(0,0,0,.03)}
+    .btn:hover{transform: translateY(-1px); border-color: rgba(124,92,255,.45)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(45,226,230,.75));
+      color:#0b1220;
+      border-color: transparent;
+      font-weight:700;
+    }
+    .btn.primary:hover{transform: translateY(-2px)}
+    .btn.ghost{background: transparent}
+    .icon{width:18px; height:18px; display:inline-block}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:30;
+      border-bottom:1px solid var(--border);
+      background: rgba(11,18,32,.65);
+      backdrop-filter: blur(12px);
+    }
+    [data-theme="light"] header{background: rgba(246,247,251,.75)}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
+      text-decoration:none;
+    }
+    .logo{
+      width:36px; height:36px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(124,92,255,1), rgba(45,226,230,1));
+      box-shadow: 0 10px 20px rgba(124,92,255,.18);
+    }
+    nav ul{
+      display:flex; gap:10px; list-style:none; padding:0; margin:0;
+      align-items:center; flex-wrap:wrap;
+    }
+    nav a{
+      text-decoration:none;
+      color: var(--muted);
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+      white-space:nowrap;
+    }
+    nav a:hover{color:var(--text); border-color: var(--border); background: rgba(255,255,255,.04)}
+    [data-theme="light"] nav a:hover{background: rgba(0,0,0,.03)}
+    .navActions{display:flex; gap:10px; align-items:center}
+    .menuBtn{display:none}
+
+    /* Sections */
+    section{padding:56px 0}
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      margin-bottom:18px;
+    }
+    .sectionTitle h2{margin:0; font-size: 1.75rem; letter-spacing:-.3px}
+    .sectionTitle p{margin:0; color:var(--muted)}
+    .panel{
+      background: rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding:20px;
+      box-shadow: var(--shadow);
+    }
+    [data-theme="light"] .panel{background: rgba(0,0,0,.02)}
+    .grid{display:grid; gap:16px}
+    .grid.cols2{grid-template-columns: repeat(2, 1fr)}
+    .card{
+      border:1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      padding:18px;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    [data-theme="light"] .card{background: rgba(0,0,0,.02)}
+    .card:hover{transform: translateY(-2px); border-color: rgba(124,92,255,.45)}
+    .muted{color:var(--muted)}
+    .small{font-size:.92rem}
+    .divider{height:1px; background: var(--border); margin:18px 0}
+
+    /* Subpáginas (2.1, 2.2) */
+    .subpage{
+      margin-top: 16px;
+      padding:18px;
+      border-radius: 18px;
+      border:1px dashed rgba(124,92,255,.45);
+      background: rgba(124,92,255,.08);
+    }
+    [data-theme="light"] .subpage{background: rgba(124,92,255,.08)}
+    .subpage h3{margin:0 0 6px}
+
+    /* Footer */
+    footer{
+      padding:28px 0 34px;
+      border-top:1px solid var(--border);
+      color: var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .grid.cols2{grid-template-columns:1fr}
+      nav ul{display:none}
+      .menuBtn{display:inline-flex}
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#inicio" aria-label="Ir a Inicio">
+          <span class="logo" aria-hidden="true"></span>
+          <span>[Título corto / Actividad]</span>
+        </a>
+
+        <nav aria-label="Navegación principal">
+          <ul>
+            <li><a href="#inicio">1. Inicio</a></li>
+            <li><a href="#modelos">2. Modelos y RED</a></li>
+            <li><a href="#seleccionando">2.1 Seleccionando modelos</a></li>
+            <li><a href="#red">2.2 RED</a></li>
+            <li><a href="#rediseno">3. Rediseño</a></li>
+            <li><a href="#aplicacion">4. Aplicación</a></li>
+            <li><a href="#referencias">5. Referencias</a></li>
+          </ul>
+        </nav>
+
+        <div class="navActions">
+          <button class="btn ghost" id="themeBtn" type="button" title="Cambiar tema" aria-label="Cambiar tema">
+            <span class="icon">🌓</span><span class="small">Tema</span>
+          </button>
+          <button class="btn menuBtn" id="menuBtn" type="button" aria-label="Abrir menú">
+            <span class="icon">☰</span><span class="small">Menú</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menú móvil -->
+      <div id="mobileMenu" class="panel" style="display:none; margin-bottom:14px">
+        <div class="grid" style="gap:10px">
+          <a class="btn" href="#inicio">1. Inicio</a>
+          <a class="btn" href="#modelos">2. Modelos y RED</a>
+          <a class="btn" href="#seleccionando">2.1 Seleccionando modelos</a>
+          <a class="btn" href="#red">2.2 Recursos educativos digitales</a>
+          <a class="btn" href="#rediseno">3. Rediseño</a>
+          <a class="btn" href="#aplicacion">4. Aplicación de modelo</a>
+          <a class="btn" href="#referencias">5. Referencias</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <!-- PÁGINA 1: INICIO -->
+      <section id="inicio">
+        <div class="sectionTitle">
+          <h2>Página 1. Inicio</h2>
+          <p>Portada del sitio</p>
+        </div>
+
+        <div class="panel">
+          <p class="chip">📘 <b>Título de la actividad:</b> <span class="muted">[Escribe aquí el título]</span></p>
+
+          <div class="divider"></div>
+
+          <div class="grid cols2">
+            <div class="card">
+              <h3 style="margin-top:0">Autor(es)</h3>
+              <p class="muted">• [Nombre 1] <br>• [Nombre 2] (si aplica)</p>
+            </div>
+
+            <div class="card">
+              <h3 style="margin-top:0">Datos académicos</h3>
+              <p class="muted" style="margin:0">
+                <b>Profesor:</b> [Nombre del profesor] <br>
+                <b>Universidad:</b> [Nombre de la universidad] <br>
+                <b>Programa/Asignatura:</b> [Opcional]
+              </p>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <p class="muted small" style="margin:0">
+            Puedes incluir aquí una breve descripción del propósito del sitio o del trabajo (2–3 líneas).
+          </p>
+        </div>
+      </section>
+
+      <!-- PÁGINA 2: MODELOS DE EVALUACIÓN Y RED -->
+      <section id="modelos">
+        <div class="sectionTitle">
+          <h2>Página 2. Modelos de evaluación y RED</h2>
+          <p>Marco conceptual y contexto</p>
+        </div>
+
+        <div class="panel">
+          <div class="grid cols2">
+            <div class="card">
+              <h3 style="margin-top:0">Modelos de evaluación</h3>
+              <p class="muted">
+                Explica brevemente qué son, para qué se usan y por qué son relevantes en la actividad.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 style="margin-top:0">RED</h3>
+              <p class="muted">
+                Introduce el concepto de Recursos Educativos Digitales (RED) y su importancia.
+              </p>
+            </div>
+          </div>
+
+          <!-- SUBPÁGINA 2.1 -->
+          <div class="subpage" id="seleccionando" aria-label="Subpágina 2.1 Seleccionando modelos">
+            <h3>Subpágina 2.1. Seleccionando modelos</h3>
+            <p class="muted">
+              Aquí describes los criterios de selección (por ejemplo: alcance, dimensiones, instrumentos, validez,
+              contexto educativo, facilidad de aplicación) y justificas el/los modelo(s) elegido(s).
+            </p>
+            <div class="grid cols2">
+              <div class="card">
+                <h4 style="margin:0 0 6px">Criterios</h4>
+                <ul class="muted" style="margin:0; padding-left:18px">
+                  <li>[Criterio 1]</li>
+                  <li>[Criterio 2]</li>
+                  <li>[Criterio 3]</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h4 style="margin:0 0 6px">Modelo(s) seleccionado(s)</h4>
+                <p class="muted" style="margin:0">[Nombre del modelo] — breve justificación.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUBPÁGINA 2.2 -->
+          <div class="subpage" id="red" aria-label="Subpágina 2.2 Recursos educativos digitales">
+            <h3>Subpágina 2.2. Recursos educativos digitales</h3>
+            <p class="muted">
+              Describe el/los RED que se evaluarán: tipo, objetivo, público, formato (web, app, OVA, LMS),
+              y evidencia (capturas/enlaces) si aplica.
+            </p>
+            <div class="grid cols2">
+              <div class="card">
+                <h4 style="margin:0 0 6px">RED seleccionado</h4>
+                <p class="muted" style="margin:0">
+                  <b>Nombre:</b> [RED] <br>
+                  <b>Enlace:</b> <a href="#" target="_blank" rel="noreferrer">[URL]</a> <br>
+                  <b>Público:</b> [Población objetivo]
+                </p>
+              </div>
+              <div class="card">
+                <h4 style="margin:0 0 6px">Descripción breve</h4>
+                <p class="muted" style="margin:0">[Qué hace, cómo se usa y qué necesidad atiende.]</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PÁGINA 3: REDISEÑO -->
+      <section id="rediseno">
+        <div class="sectionTitle">
+          <h2>Página 3. Rediseño</h2>
+          <p>Propuesta de mejora basada en hallazgos</p>
+        </div>
+
+        <div class="panel">
+          <div class="grid cols2">
+            <div class="card">
+              <h3 style="margin-top:0">Problemas identificados</h3>
+              <ul class="muted" style="margin:0; padding-left:18px">
+                <li>[Problema 1]</li>
+                <li>[Problema 2]</li>
+                <li>[Problema 3]</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3 style="margin-top:0">Soluciones propuestas</h3>
+              <ul class="muted" style="margin:0; padding-left:18px">
+                <li>[Mejora 1]</li>
+                <li>[Mejora 2]</li>
+                <li>[Mejora 3]</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <p class="muted">
+            (Opcional) Incluye aquí bocetos, wireframes o enlaces a prototipos (Figma, etc.).
+          </p>
+        </div>
+      </section>
+
+      <!-- PÁGINA 4: APLICACIÓN DEL MODELO DE EVALUACIÓN -->
+      <section id="aplicacion">
+        <div class="sectionTitle">
+          <h2>Página 4. Aplicación de modelo de evaluación</h2>
+          <p>Instrumento, resultados y análisis</p>
+        </div>
+
+        <div class="panel">
+          <div class="grid cols2">
+            <div class="card">
+              <h3 style="margin-top:0">Instrumento / Dimensiones</h3>
+              <p class="muted">
+                Describe el instrumento (rúbrica, checklist, escala), dimensiones y cómo se aplicó.
+              </p>
+              <ul class="muted" style="margin:0; padding-left:18px">
+                <li>[Dimensión 1] — [cómo se midió]</li>
+                <li>[Dimensión 2] — [cómo se midió]</li>
+                <li>[Dimensión 3] — [cómo se midió]</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3 style="margin-top:0">Resultados</h3>
+              <p class="muted">
+                Resume hallazgos (tablas/porcentajes/conclusiones). Puedes pegar aquí los principales resultados.
+              </p>
+              <p class="muted small" style="margin:0">
+                Tip: si tienes una tabla en Excel/Sheets, puedo ayudarte a convertirla en una tabla bonita para esta sección.
+              </p>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="card">
+            <h3 style="margin-top:0">Conclusiones</h3>
+            <p class="muted" style="margin:0">
+              Conecta los resultados con el rediseño: qué mejorar, prioridad, y próximos pasos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PÁGINA 5: REFERENCIAS -->
+      <section id="referencias">
+        <div class="sectionTitle">
+          <h2>Página 5. Referencias</h2>
+          <p>Fuentes consultadas (APA u otro formato)</p>
+        </div>
+
+        <div class="panel">
+          <div class="card">
+            <h3 style="margin-top:0">Listado de referencias</h3>
+            <ol class="muted" style="margin:0; padding-left:18px">
+              <li>[Autor, A. A. (Año). Título. Editorial/Revista. DOI/URL]</li>
+              <li>[Autor, A. A. (Año). Título. Editorial/Revista. DOI/URL]</li>
+              <li>[Sitio/Institución. (Año). Título del recurso. URL]</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <div>© <span id="year"></span> [Autor(es)].</div>
+      <div class="muted">Actualizado: <span id="lastUpdated"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    // Año y fecha
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastUpdated").textContent = new Date().toLocaleDateString("es-CO", {
+      year:"numeric", month:"long", day:"numeric"
+    });
+
+    // Tema
+    const body = document.body;
+    const themeBtn = document.getElementById("themeBtn");
+    const saved = localStorage.getItem("theme");
+    if(saved){ body.setAttribute("data-theme", saved); }
+    themeBtn.addEventListener("click", () => {
+      const current = body.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      body.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+
+    // Menú móvil
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => {
+      const isOpen = mobileMenu.style.display === "block";
+      mobileMenu.style.display = isOpen ? "none" : "block";
+      menuBtn.setAttribute("aria-label", isOpen ? "Abrir menú" : "Cerrar menú");
+      menuBtn.querySelector(".icon").textContent = isOpen ? "☰" : "✕";
+    });
+
+    // Cerrar menú móvil al navegar
+    mobileMenu.addEventListener("click", (e) => {
+      const link = e.target.closest("a");
+      if(!link) return;
+      mobileMenu.style.display = "none";
+      menuBtn.setAttribute("aria-label", "Abrir menú");
+      menuBtn.querySelector(".icon").textContent = "☰";
+    });
+  </script>
+</body>
+</html>
