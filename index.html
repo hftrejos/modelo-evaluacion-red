@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="Actividad - Modelos de evaluación y RED" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Actividad | Portafolio&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--bg:#0b1220;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--panel:#0f1b33;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--text:#e8eefc;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--muted:#a9b6d6;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--brand:#7c5cff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--brand2:#2de2e6;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--border: rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--shadow: 0 16px 40px rgba(0,0,0,.35);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--radius: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--max: 1100px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"]{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--bg:#f6f7fb;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--panel:#ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--text:#0b1220;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--muted:#4a587a;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--border: rgba(0,0,0,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--shadow: 0 14px 30px rgba(12,19,35,.10);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>*{box-sizing:border-box}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>html{scroll-behavior:smooth}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: radial-gradient(1000px 600px at 20% 0%, rgba(124,92,255,.18), transparent 60%),</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>radial-gradient(900px 500px at 90% 10%, rgba(45,226,230,.12), transparent 55%),</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.6;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>a{color:inherit}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.wrap{max-width:var(--max); margin:0 auto; padding:0 20px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chip{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:inline-flex; align-items:center; gap:8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:8px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.04);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(8px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"] .chip{background: rgba(0,0,0,.03)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:inline-flex; align-items:center; justify-content:center; gap:10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:12px 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.06);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration:none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: transform .15s ease, background .15s ease, border-color .15s ease;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>user-select:none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"] .btn{background: rgba(0,0,0,.03)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn:hover{transform: translateY(-1px); border-color: rgba(124,92,255,.45)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn.primary{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(45,226,230,.75));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#0b1220;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:700;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn.primary:hover{transform: translateY(-2px)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn.ghost{background: transparent}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.icon{width:18px; height:18px; display:inline-block}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Header */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:sticky; top:0; z-index:30;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(11,18,32,.65);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(12px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"] header{background: rgba(246,247,251,.75)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; align-items:center; justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:14px 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.brand{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; align-items:center; gap:10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800; letter-spacing:.2px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration:none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.logo{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width:36px; height:36px; border-radius:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, rgba(124,92,255,1), rgba(45,226,230,1));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 10px 20px rgba(124,92,255,.18);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nav ul{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; gap:10px; list-style:none; padding:0; margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:center; flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nav a{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-decoration:none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:8px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid transparent;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>white-space:nowrap;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nav a:hover{color:var(--text); border-color: var(--border); background: rgba(255,255,255,.04)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"] nav a:hover{background: rgba(0,0,0,.03)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.navActions{display:flex; gap:10px; align-items:center}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.menuBtn{display:none}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Sections */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>section{padding:56px 0}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sectionTitle{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; align-items:flex-end; justify-content:space-between; gap:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sectionTitle h2{margin:0; font-size: 1.75rem; letter-spacing:-.3px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sectionTitle p{margin:0; color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.04);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: var(--radius);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: var(--shadow);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"] .panel{background: rgba(0,0,0,.02)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.grid{display:grid; gap:16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.grid.cols2{grid-template-columns: repeat(2, 1fr)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.04);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: transform .15s ease, border-color .15s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"] .card{background: rgba(0,0,0,.02)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card:hover{transform: translateY(-2px); border-color: rgba(124,92,255,.45)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.muted{color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.small{font-size:.92rem}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.divider{height:1px; background: var(--border); margin:18px 0}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Subpáginas (2.1, 2.2) */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.subpage{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px dashed rgba(124,92,255,.45);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(124,92,255,.08);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"] .subpage{background: rgba(124,92,255,.08)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.subpage h3{margin:0 0 6px}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Footer */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:28px 0 34px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top:1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Responsive */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 900px){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.grid.cols2{grid-template-columns:1fr}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>nav ul{display:none}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.menuBtn{display:inline-flex}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body data-theme="dark"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="nav"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a class="brand" href="#inicio" aria-label="Ir a Inicio"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="logo" aria-hidden="true"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;[Título corto / Actividad]&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/a&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;nav aria-label="Navegación principal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;a href="#inicio"&gt;1. Inicio&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;a href="#modelos"&gt;2. Modelos y RED&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;a href="#seleccionando"&gt;2.1 Seleccionando modelos&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;a href="#red"&gt;2.2 RED&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;a href="#rediseno"&gt;3. Rediseño&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;a href="#aplicacion"&gt;4. Aplicación&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;a href="#referencias"&gt;5. Referencias&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="navActions"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="btn ghost" id="themeBtn" type="button" title="Cambiar tema" aria-label="Cambiar tema"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="icon"&gt;🌓&lt;/span&gt;&lt;span class="small"&gt;Tema&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="btn menuBtn" id="menuBtn" type="button" aria-label="Abrir menú"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="icon"&gt;☰&lt;/span&gt;&lt;span class="small"&gt;Menú&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- Menú móvil --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="mobileMenu" class="panel" style="display:none; margin-bottom:14px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid" style="gap:10px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn" href="#inicio"&gt;1. Inicio&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn" href="#modelos"&gt;2. Modelos y RED&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn" href="#seleccionando"&gt;2.1 Seleccionando modelos&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn" href="#red"&gt;2.2 Recursos educativos digitales&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn" href="#rediseno"&gt;3. Rediseño&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn" href="#aplicacion"&gt;4. Aplicación de modelo&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn" href="#referencias"&gt;5. Referencias&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="wrap"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- PÁGINA 1: INICIO --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;section id="inicio"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sectionTitle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;Página 1. Inicio&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Portada del sitio&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="chip"&gt;📘 &lt;b&gt;Título de la actividad:&lt;/b&gt; &lt;span class="muted"&gt;[Escribe aquí el título]&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="grid cols2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3 style="margin-top:0"&gt;Autor(es)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p class="muted"&gt;• [Nombre 1] &lt;br&gt;• [Nombre 2] (si aplica)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3 style="margin-top:0"&gt;Datos académicos&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p class="muted" style="margin:0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;b&gt;Profesor:&lt;/b&gt; [Nombre del profesor] &lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;b&gt;Universidad:&lt;/b&gt; [Nombre de la universidad] &lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;b&gt;Programa/Asignatura:&lt;/b&gt; [Opcional]</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted small" style="margin:0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Puedes incluir aquí una breve descripción del propósito del sitio o del trabajo (2–3 líneas).</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- PÁGINA 2: MODELOS DE EVALUACIÓN Y RED --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;section id="modelos"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sectionTitle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;Página 2. Modelos de evaluación y RED&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Marco conceptual y contexto&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="grid cols2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3 style="margin-top:0"&gt;Modelos de evaluación&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p class="muted"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Explica brevemente qué son, para qué se usan y por qué son relevantes en la actividad.</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3 style="margin-top:0"&gt;RED&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p class="muted"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Introduce el concepto de Recursos Educativos Digitales (RED) y su importancia.</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;!-- SUBPÁGINA 2.1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="subpage" id="seleccionando" aria-label="Subpágina 2.1 Seleccionando modelos"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Subpágina 2.1. Seleccionando modelos&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="muted"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Aquí describes los criterios de selección (por ejemplo: alcance, dimensiones, instrumentos, validez,</p>
+<p class="p1"><span class="Apple-converted-space">              </span>contexto educativo, facilidad de aplicación) y justificas el/los modelo(s) elegido(s).</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid cols2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 style="margin:0 0 6px"&gt;Criterios&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="muted" style="margin:0; padding-left:18px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;li&gt;[Criterio 1]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;li&gt;[Criterio 2]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;li&gt;[Criterio 3]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 style="margin:0 0 6px"&gt;Modelo(s) seleccionado(s)&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="muted" style="margin:0"&gt;[Nombre del modelo] — breve justificación.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;!-- SUBPÁGINA 2.2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="subpage" id="red" aria-label="Subpágina 2.2 Recursos educativos digitales"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Subpágina 2.2. Recursos educativos digitales&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="muted"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Describe el/los RED que se evaluarán: tipo, objetivo, público, formato (web, app, OVA, LMS),</p>
+<p class="p1"><span class="Apple-converted-space">              </span>y evidencia (capturas/enlaces) si aplica.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid cols2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 style="margin:0 0 6px"&gt;RED seleccionado&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="muted" style="margin:0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;b&gt;Nombre:&lt;/b&gt; [RED] &lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;b&gt;Enlace:&lt;/b&gt; &lt;a href="#" target="_blank" rel="noreferrer"&gt;[URL]&lt;/a&gt; &lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;b&gt;Público:&lt;/b&gt; [Población objetivo]</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 style="margin:0 0 6px"&gt;Descripción breve&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="muted" style="margin:0"&gt;[Qué hace, cómo se usa y qué necesidad atiende.]&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- PÁGINA 3: REDISEÑO --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;section id="rediseno"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sectionTitle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;Página 3. Rediseño&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Propuesta de mejora basada en hallazgos&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="grid cols2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3 style="margin-top:0"&gt;Problemas identificados&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul class="muted" style="margin:0; padding-left:18px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;[Problema 1]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;[Problema 2]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;[Problema 3]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3 style="margin-top:0"&gt;Soluciones propuestas&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul class="muted" style="margin:0; padding-left:18px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;[Mejora 1]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;[Mejora 2]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;[Mejora 3]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>(Opcional) Incluye aquí bocetos, wireframes o enlaces a prototipos (Figma, etc.).</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- PÁGINA 4: APLICACIÓN DEL MODELO DE EVALUACIÓN --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;section id="aplicacion"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sectionTitle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;Página 4. Aplicación de modelo de evaluación&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Instrumento, resultados y análisis&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="grid cols2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3 style="margin-top:0"&gt;Instrumento / Dimensiones&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p class="muted"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Describe el instrumento (rúbrica, checklist, escala), dimensiones y cómo se aplicó.</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul class="muted" style="margin:0; padding-left:18px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;[Dimensión 1] — [cómo se midió]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;[Dimensión 2] — [cómo se midió]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;[Dimensión 3] — [cómo se midió]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3 style="margin-top:0"&gt;Resultados&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p class="muted"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Resume hallazgos (tablas/porcentajes/conclusiones). Puedes pegar aquí los principales resultados.</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p class="muted small" style="margin:0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Tip: si tienes una tabla en Excel/Sheets, puedo ayudarte a convertirla en una tabla bonita para esta sección.</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 style="margin-top:0"&gt;Conclusiones&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="muted" style="margin:0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Conecta los resultados con el rediseño: qué mejorar, prioridad, y próximos pasos.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;!-- PÁGINA 5: REFERENCIAS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;section id="referencias"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="sectionTitle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;Página 5. Referencias&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Fuentes consultadas (APA u otro formato)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="panel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 style="margin-top:0"&gt;Listado de referencias&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;ol class="muted" style="margin:0; padding-left:18px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;[Autor, A. A. (Año). Título. Editorial/Revista. DOI/URL]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;[Autor, A. A. (Año). Título. Editorial/Revista. DOI/URL]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;[Sitio/Institución. (Año). Título del recurso. URL]&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ol&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="wrap" style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;© &lt;span id="year"&gt;&lt;/span&gt; [Autor(es)].&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="muted"&gt;Actualizado: &lt;span id="lastUpdated"&gt;&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Año y fecha</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("year").textContent = new Date().getFullYear();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("lastUpdated").textContent = new Date().toLocaleDateString("es-CO", {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>year:"numeric", month:"long", day:"numeric"</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Tema</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const body = document.body;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const themeBtn = document.getElementById("themeBtn");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const saved = localStorage.getItem("theme");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(saved){ body.setAttribute("data-theme", saved); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>themeBtn.addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const current = body.getAttribute("data-theme") || "dark";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const next = current === "dark" ? "light" : "dark";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>body.setAttribute("data-theme", next);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>localStorage.setItem("theme", next);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Menú móvil</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const menuBtn = document.getElementById("menuBtn");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const mobileMenu = document.getElementById("mobileMenu");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>menuBtn.addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const isOpen = mobileMenu.style.display === "block";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>mobileMenu.style.display = isOpen ? "none" : "block";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>menuBtn.setAttribute("aria-label", isOpen ? "Abrir menú" : "Cerrar menú");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>menuBtn.querySelector(".icon").textContent = isOpen ? "☰" : "✕";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Cerrar menú móvil al navegar</p>
+<p class="p1"><span class="Apple-converted-space">    </span>mobileMenu.addEventListener("click", (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const link = e.target.closest("a");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!link) return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>mobileMenu.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>menuBtn.setAttribute("aria-label", "Abrir menú");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>menuBtn.querySelector(".icon").textContent = "☰";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
